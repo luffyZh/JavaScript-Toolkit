@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LocalStorage</title>
+</head>
+<body>
+  <div>当前浏览器的localStorage大小为:<span id='capity' style='color:blue'></span>KB</div>
+  <span id='str'>
+    
+  </span>
+  <div id='localstorage'>
+  </div>
+  <button onclick="addLocalStorage()">增加一次500KBLocalStorage</button>
+</body>
+<script src="./500KBStr.js"></script>
+<script src="./safeLocalStorage.js"></script>
+<script>
+function currentCaptity(){
+  if(!window.localStorage) {
+     console.log('浏览器不支持localStorage');
+  }
+  var size = 0;
+  for(item in window.localStorage) {
+     if(window.localStorage.hasOwnProperty(item)) {
+        size += window.localStorage.getItem(item).length;
+      }
+  }
+  var currentCapity = (size / 1024).toFixed(2);
+  document.getElementById('capity').innerText = currentCapity;
+};
+function addLocalStorage() {
+  document.getElementById('localstorage').innerHTML += '<div>增加了一次500Kb字符串</div>';
+  if(!window.localStorage.getItem('testLocalStorage')) {
+    //如果不存在首次存入
+    window.localStorage.setItem('testLocalStorage',fiveHundredKbStr);
+    currentCaptity();
+  } else {
+    window.localStorage.setItem('testLocalStorage',window.localStorage.getItem('testLocalStorage') + fiveHundredKbStr);
+    currentCaptity();
+  }
+}
+(function(){
+  currentCaptity();
+})();
+</script>
+</html>
