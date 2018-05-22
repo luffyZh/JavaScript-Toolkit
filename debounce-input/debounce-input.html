@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>debounce-input</title>
+</head>
+<body>
+  <div>
+      <label>普通input:</label>
+      <input id='normalInput' type='text' />
+      <br>
+      normalInputValue:<span id='normalInputValue' oninput=""></span>
+      <br/>
+      变化了<span style='color:blue' id='normalInputChangeTimes'></span>次
+  </div>
+  <br/>
+  <div>
+      <label>debounce-input:</label>
+      <input id='debounceInput' type='text' />
+      <br/>
+      debounceInputValue:<span id='debounceInputValue'></span>
+      <br/>
+      变化了<span style='color:blue' id='debounceInputChangeTimes'></span>次
+  </div>
+</body>
+<script src='./debounce-input.js'></script>
+</html>
