@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Safe-Float</title>
+</head>
+<body>
+   <div>
+    <p>下面这个是JavaScript中的不安全浮点数：</p>
+    0.1 + 0.2 = <span style="color: blue" id='nosafe1'></span><br/>
+    12.6 - 10 = <span style="color: blue" id='nosafe2'></span>
+  </div>
+  <div>
+    <p>下面这个使用了safe-float进行了计算：</p>
+    0.1 + 0.2 = <span style="color: green" id='safe1'></span><br />
+    12.6 + 10 = <span style="color: green" id='safe2'></span>
+  </div>
+</body>
+<script src="./safe-float.js"></script>
+<script>
+  document.getElementById('nosafe1').innerHTML = (0.1 + 0.2);
+  document.getElementById('nosafe2').innerHTML = (12.6 - 10);
+  document.getElementById('safe1').innerHTML = safeFloat(0.1 + 0.2);
+  document.getElementById('safe2').innerHTML = safeFloat(12.6 - 10);
+</script>
+</html>
