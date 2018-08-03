@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>图片换行问题</title>
+  <style>
+    * {
+      border: 0;
+      padding: 0;
+    }
+    img {
+      display: inline-block;
+      width: 100%;
+      height: auto;
+    }
+    section {
+      display: inline-block;
+      font-size: 0;
+    /* box-sizing: border-box; 如果想要第三个里面两张图在同一行，需要加这个*/ 
+    }
+    .container {
+      width: 50%; margin: 0 auto; background-color: aquamarine; padding: 10px
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section style="width: 50%">
+      <img src="./reborn.jpg" />
+    </section>
+    <section style="width: 50%">
+      <img src="./reborn.jpg" />
+    </section>
+  </div>
+  <br/>
+  <div class="container" style="font-size: 0">
+    <!-- 两个section之间的回车会导致出现空格，这样就不会在一行显示了，加上font-size:0就会取消页面标签与标签之间的回车间隙 -->
+    <section style="width: 50%">
+      <img src="./reborn.jpg" />
+    </section>
+    <section style="width: 50%">
+      <img src="./reborn.jpg" />
+    </section>
+  </div>
+  <br/>
+  <div class="container">
+    <!-- 考察盒模型，padding算进去的叫border-box，正常的盒模型是不算padding的 -->
+    <section style="width: 50%; padding-right: 4px">
+      <img src="./reborn.jpg" />
+    </section><section style="width: 50%; padding-left: 4px">
+      <img style="padding-left: 4px" src="./reborn.jpg" />
+    </section>
+  </div>
+</body>
+</html>
